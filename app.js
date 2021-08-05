@@ -18,7 +18,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const MongoDBStore = require('connect-mongo');
 //const dburl = process.env.DB_URL;
-const dburl = 'mongodb://localhost:27017/art-gallery';
+const dburl =process.env.DB_URL || 'mongodb://localhost:27017/art-gallery';
 mongoose.connect(dburl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -43,9 +43,11 @@ app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+
 const sessionConfig = {
     store: MongoDBStore.create({ mongoUrl: dburl, touchAfter: 24 * 60 * 60 }),        
-    secret: 'thisshouldbeabettersecret!',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -90,8 +92,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-
-
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 })
