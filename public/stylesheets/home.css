@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1475710534222-6165a8b45449?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=692683df20283d5aa6e2b058be2c000e&auto=format&fit=crop&w=1950&q=80");
+    url("https://images.unsplash.com/reserve/J3URHssSQyqifuJVcgKu_Wald.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=589423add37e168c0601a481e74569ca&auto=format&fit=crop&w=1950&q=80");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
